@@ -54,7 +54,7 @@ public class Die {
    public Die(int nSides) {
        if (nSides < 4) {
            throw new IllegalArgumentException("Sides will be set to the minimum of 4");
-           sides = MINIMUM_SIDES;
+           // sides = MINIMUM_SIDES;   NOTE: THIS IS AN UNREACHABLE STATEMENT; PROGRAM ABORTS AT LINE ABOVE
        } else {
            this.sides = nSides;
        }

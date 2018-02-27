@@ -109,6 +109,7 @@ public class DiceSet {
 
       String result = "";
       for (int i = 0; i < count - 1; i++) {
+          // result = result + ds[i].toString(ds[i]); NOTE: INCORRECT; NO PARAMETERS TO THIS toString()
           result = result + ds[i].toString(ds[i]);
       }
       return result;

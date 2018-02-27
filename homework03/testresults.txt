@@ -1,0 +1,81 @@
+Hello world from the Die class...
+false
+[4]
+[51]
+4
+[3]
+[7]
+false
+
+End of Die and diceSet testing
+
+TESTING THE DIE CLASS: TEST CONSTRUCTOR FOR INVALID NUMBERS OF SIDES:
+   Too few sides requested to constructor....
+   Too few sides requested to constructor....
+   Too few sides requested to constructor....
+   Too few sides requested to constructor....
+TESTING THE DIE CLASS: TESTS ON 4-SIDED DIE:
+   roll() test for 4 sided die:
+   You rolled a 4
+   You rolled a 1
+   You rolled a 2
+   You rolled a 2
+   You rolled a 1
+   Current value is: [1]
+TESTING THE DIE CLASS: TESTS ON 5-SIDED DIE:
+   roll() test for 5 sided die:
+   You rolled a 1
+   You rolled a 2
+   You rolled a 1
+   You rolled a 2
+   You rolled a 5
+   Current value is: [5]
+TESTING THE DIE CLASS: TESTS ON 6-SIDED DIE:
+   roll() test for 6 sided die:
+   You rolled a 1
+   You rolled a 3
+   You rolled a 2
+   You rolled a 5
+   You rolled a 5
+   Current value is: [5]
+TESTING THE DIE CLASS: TESTS ON 7-SIDED DIE:
+   roll() test for 7 sided die:
+   You rolled a 3
+   You rolled a 7
+   You rolled a 7
+   You rolled a 2
+   You rolled a 7
+   Current value is: [7]
+TESTING THE DIE CLASS: TESTS ON 8-SIDED DIE:
+   roll() test for 8 sided die:
+   You rolled a 2
+   You rolled a 5
+   You rolled a 8
+   You rolled a 7
+   You rolled a 6
+   Current value is: [6]
+TESTING THE DIE CLASS: TESTS ON 11-SIDED DIE USING NEW SIDE COUNT:
+   Rolling with new side count --
+      You rolled a 8
+      You rolled a 1
+      You rolled a 2
+      You rolled a 4
+      You rolled a 7
+TESTING THE DIE CLASS: TESTS ON 17-SIDED DIE USING NEW SIDE COUNT:
+   Rolling with new side count --
+      You rolled a 2
+      current value is: 2
+TESTING THE DIE CLASS: TESTS ON 111-SIDED DIE USING NEW SIDE COUNT:
+   Rolling with new side count --
+      You rolled a 3
+      current value is: 3
+......End of Die Class Testing.....
+
+
+TESTING THE DICESET CLASS: TEST CONSTRUCTOR FOR 3 SIX-SIDED DICE:
+  DiceSet: 3 dice, six sided - ds36:
+
+NOTE: WON'T RUN THE LAST TESTS IN THE TEST HARNESS; GETS NullPointerException AT LINE 113 IN DiceSet.java
+
+NOTE: "HighRoll" DOESN'T ACTUALLY DO ANYTHING.
+
