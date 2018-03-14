@@ -34,7 +34,7 @@ public class Clock {
    *  Constructor goes here
    */
    public Clock() {
-       //Clock clock = new clock(); 
+       //Clock clock = new clock();
        this.hours = 0.0;
        this.minutes = 0.0;
        this.seconds = 0.0;
@@ -76,21 +76,9 @@ public class Clock {
       return 0.0;
    }
 
-  /**
-   *  Method to validate the optional time slice argument
-   *  @param  argValue  String from the main programs args[1] input
-   *  @return double-precision value of the argument or -1.0 if invalid
-   *  note: if the main program determines there IS no optional argument supplied,
-   *         I have elected to have it substitute the string "60.0" and call this
-   *         method anyhow.  That makes the main program code more uniform, but
-   *         this is a DESIGN DECISION, not a requirement!
-   *  note: remember that the time slice, if it is small will cause the simulation
-   *         to take a VERY LONG TIME to complete!
-   */
-   public double validateTimeSliceArg( String argValue ) {
-      return 0.0;
 
-   }
+
+   
        public double getSeconds () {
            return this.seconds;
        }
@@ -126,10 +114,12 @@ public class Clock {
    *  @return double-precision value of the angle between the two hands
    */
    public double getHandAngle() {
-      double HandAngle = this.getMinuteHandAngle() > this.getHourHandAngle()?
-                         this.getMinuteHandAngle() - this.getHourHandAngle():
-                         this.getHourHandAngle() - this.getMinuteHandAngle();
-
+       double HandAngle = 0;
+        if (this.getHourHandAngle() > this.getMinuteHandAngle()){
+                HandAngle = (this.getHourHandAngle() - this.getMinuteHandAngle());
+        } else {
+                HandAngle = (this.getMinuteHandAngle() - this.getHourHandAngle());
+            }
         while (HandAngle >= 360) { HandAngle -= 360;}
       return HandAngle;
    }
@@ -140,7 +130,8 @@ public class Clock {
    *  @return double-precision value the total seconds private variable
    */
    public double getTotalSeconds() {
-      return 0.0;
+      double TotalSeconds = ((this.hours * 3600) + (this.minutes * 60) + this.seconds);
+      return TotalSeconds;
    }
 
   /**
