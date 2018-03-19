@@ -1,0 +1,85 @@
+.
+.
+4 compile errors occurred:
+
+ClockSolver.java:66: error: cannot find symbol
+      ClockSolverEmpty cse = new ClockSolverEmpty();
+      ^
+  symbol:   class ClockSolverEmpty
+  location: class ClockSolver
+ClockSolver.java:66: error: cannot find symbol
+      ClockSolverEmpty cse = new ClockSolverEmpty();
+                                 ^
+  symbol:   class ClockSolverEmpty
+  location: class ClockSolver
+ClockSolver.java:67: error: cannot find symbol
+      ClockEmpty clock    = new ClockEmpty();
+      ^
+  symbol:   class ClockEmpty
+  location: class ClockSolver
+ClockSolver.java:67: error: cannot find symbol
+      ClockEmpty clock    = new ClockEmpty();
+                                ^
+  symbol:   class ClockEmpty
+  location: class ClockSolver
+4 errors
+
+Edited to remove the word "Empty" in four places.
+Recompiled OK
+.
+.
+
+CLOCK CLASS TESTER PROGRAM
+--------------------------
+
+  Creating a new clock: 
+    New clock created: Clock string, dangit!
+    Testing validateAngleArg()....
+      sending '  0 degrees', expecting double value   0.0 - got 0.0
+
+   Hello world, from the ClockSolver program!!
+
+
+   Sorry you must enter at least one argument
+   Usage: java ClockSolver <angle> [timeSlice]
+   Please try again...........
+
+   Hello world, from the ClockSolver program!!
+
+
+
+   Hello world, from the ClockSolver program!!
+
+
+
+   Hello world, from the ClockSolver program!!
+
+
+
+   Hello world, from the ClockSolver program!!
+
+
+
+   Hello world, from the ClockSolver program!!
+
+
+
+   Hello world, from the ClockSolver program!!
+
+
+
+   Hello world, from the ClockSolver program!!
+
+
+
+   Hello world, from the ClockSolver program!!
+
+
+
+   Hello world, from the ClockSolver program!!
+
+
+
+   Hello world, from the ClockSolver program!!
+
+
