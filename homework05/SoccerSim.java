@@ -27,10 +27,10 @@ public class SoccerSim{
     public static Ball[] arBalls;
     public static double timeSlice;
 
-
     public void initialAttributes(String args[]) {
         Clock tempClock = new Clock();
         ballList = new ArrayList<Ball>();
+        attributeArray = new double[args.length];
         if( args.length % 4 != 0 ) {
             System.out.println("Please enter the correct number of attributes");
             System.exit(0);
@@ -58,6 +58,7 @@ public class SoccerSim{
               return false;
           }
 }
+
 
 public static void main( String args[] ) {
   	SoccerSim soccerSim = new SoccerSim();
