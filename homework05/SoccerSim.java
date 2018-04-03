@@ -17,14 +17,19 @@
  * ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
  import java.util.ArrayList;
  import java.util.Arrays;
+ import java.util.TimerTask;
+
 
 public class SoccerSim{
 
     public static ArrayList ballList;
     public static double[] attributeArray;
     public static Ball[] arBalls;
+    public static double timeSlice;
+
 
     public void initialAttributes(String args[]) {
+        Clock tempClock = new Clock();
         ballList = new ArrayList<Ball>();
         if( args.length % 4 != 0 ) {
             System.out.println("Please enter the correct number of attributes");
@@ -37,5 +42,44 @@ public class SoccerSim{
         }
 
     }
+
+
+
 }
+    public void moveBall() {
+         for ( int i = 0; i < arBalls.length; i++) {
+              arBalls[ i ].move( timeSlice );
+}
+}
+    public static boolean detectCollision( Ball b1, Ball b2 ) {
+  	     if ( b1.getXPosition() == b2.getXPosition() && b1.getYPosition() == b2.getYPosition() ) {
+  	          return true;
+          } else {
+              return false;
+          }
+}
+
+public static void main( String args[] ) {
+  	SoccerSim soccerSim = new SoccerSim();
+  	Clock clock = new Clock();
+  	soccerSim.initialAttributes( args );
+  	while ( true ) {
+  	  System.out.println( "Current time: " + clock.toString() );
+  	  soccerSim.moveBall();
+  	  for ( int i = 0; i < arBalls.length; i++ ) {
+  	    for ( int j = i + 1; j < arBalls.length; j++ ) {
+  	      if ( soccerSim.detectCollision( arBalls[ i ], arBalls[ j ] ) ) {
+  	  	    if ( j == arBalls.length - 1 ) {
+  	  	      System.out.println( "Collision detected at time " + clock.toString() );
+  	  	    } else {
+                System.out.println("No collision detected currently");
+  	  	    }
+  	  	    System.exit( 0 );
+  	  	  }
+  	    }
+  	  }
+  	  clock.tick( timeSlice );
+  	  soccerSim.moveBall();
+  	}
+  }
 }
