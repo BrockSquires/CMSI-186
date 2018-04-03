@@ -30,7 +30,7 @@
     private double timeSlice; // initial velocity of balls
     private double fieldSize = 500;
 
-    private final double radius; //radius of ball
+    private final double radius = .5; //radius of ball
 
     public Ball(double px, double py, double vix, double viy) {
         this.px = px;
@@ -41,29 +41,30 @@
         vy = this.viy - ((this.viy * .01) * timeSlice);
         timeSlice = 0;
 
-        move();
-        
-        TimerTask task;
-        task = new TimerTask() {
-                @Override
-                public void run() {
-                    if (vx > 0 && vy > 0) {
-                        timeSlice++;
-                    } else {
-                        // stop the timer
-                        cancel();
-                    }
-                }
-            };
 
-        for(;;) {
-            Timer timer = new Timer();
-            timer.schedule(task, 0, 1000);
 
-            //Thread.sleep(1000);
-            timeSlice ++;
-        }
 
+    //     TimerTask task;
+    //     task = new TimerTask() {
+    //             @Override
+    //             public void run() {
+    //                 if (vx > 0 && vy > 0) {
+    //                     timeSlice++;
+    //                 } else {
+    //                     // stop the timer
+    //                     cancel();
+    //                 }
+    //             }
+    //         };
+    //
+    //     for(;;) {
+    //         Timer timer = new Timer();
+    //         timer.schedule(task, 0, 1000);
+    //
+    //         //Thread.sleep(1000);
+    //         timeSlice ++;
+    //     }
+    //
     }
 
 
@@ -75,7 +76,15 @@
         vy = -vy;
     }
 
-    public void move() {
+    public double getXPosition() {
+      return px;
+    }
+
+    public double getYPosition() {
+          return py;
+        }
+
+    public void move(double timeSlice) {
      px = px + vx;
      py = py + vy;
      if (!checkBounds()) {
