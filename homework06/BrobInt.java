@@ -42,10 +42,11 @@ public class BrobInt {
 
   /// These are the internal fields
    private String internalValue = "";        // internal String representation of this BrobInt
-   private byte   sign          = 0;         // "0" is positive, "1" is negative
+   private boolean   sign;         // "0" is positive, "1" is negative
    private String reversed      = "";        // the backwards version of the internal String representation
    private byte[] byteVersion   = null;      // byte array for storing the string values; uses the reversed string
    private int length;
+   private String bigger = "";
 
   /**
    *  Constructor takes a string and assigns it to the internal storage, checks for a sign character
@@ -57,44 +58,40 @@ public class BrobInt {
       if( value.equals("0") ) {
           internalValue = value;
           length = internalValue.length();
-          reversed = reverser();
+          reverser();
       } else {
           internalValue = value;
-          reversed = reverser();
+          reverser();
           length = internalValue.length();
           byte[] byteVersion = new byte[value.length()];
 
-          for (int i = 0; i < internalValue.length(); i++) {
-	             byteVersion[i] = Character.digit(internalValue.charAt(reverser(i)));
-}
       }
    }
 
 
    public void signCheck() {
+       boolean sign = false;
        if (internalValue.charAt(0) == '-') {
-           sign = 1; //check whether boolean is better or this shit
+           sign = true; //check whether boolean is better or this shit
            internalValue = internalValue.substring(1);
        }
    }
 
-   public void checkLarger(BrobInt gint) {
-       if (length.equals(gint.length) && Character.getNumericValue(internalValue.charAt(0)) < Character
-                .getNumericValue(gint.internalValue.charAt(0))) {
-            String newString = internalValue;
-            internalValue = gint;
-            return new BrobInt(newString);
+   public BrobInt checkLarger(BrobInt gint) {
+       boolean larger = false;
+       if (length == (gint.length) && Character.getNumericValue(internalValue.charAt(0)) < Character
+                .getNumericValue(gint.internalValue.charAt(0)) || length < gint.length) {
+                    larger = true;
         } else {
-            return Brobit();
+            larger = false;
         }
 
-        if (length < gint.lenth) {
-            String newString = internalValue;
-            internalValue = gint;
-            return new BrobInt(newString);
+        if(larger){
+            bigger = gint.toString();
         } else {
-            return Brobit();
+            bigger = internalValue;
         }
+
    }
   /** ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
    *  Method to validate that all the characters in the value are valid decimal digits
@@ -113,7 +110,8 @@ public class BrobInt {
    *  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
    public BrobInt reverser() {
       StringBuilder sb = new StringBuilder(internalValue);
-      return new sb.reverse().toString();
+      String reversed = sb.reverse().toString();
+      return new BrobInt(reversed);
    }
 
   /** ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -142,20 +140,20 @@ public class BrobInt {
    *  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
    public BrobInt addInt( BrobInt gint ) {
        boolean makeNegative = false;
-
-       if(sign = 0 && gint.sign = 1) {
-           gint.sign = 0;
+       carry = 0
+       if(!sign && gint.sign) {
+           gint.sign = true;
            return subtractInt(gint);
-       } else if(sign = 1 && gint.sign = 1) {
+       } else if(!sign && !gint.sign) {
            makeNegative = true;
        }
 
-       byte[] totalSum = new byte[Math.max(internalValue.length())+1];
-       for(int i = 0; i <= length.checkLarger(); i++){
+       byte[] totalSum = new byte[(bigger.length())+1];
+       for(int i = 0; i <= bigger.length(); i++){
 	          totalSum[i] = 0;
 
 
-	       if (i > length.checkLarger()){
+	       if (i > bigger.length()){
 
 		      totalSum[i] = gint.BrobInt[i] + 0;
           } else{
@@ -184,7 +182,7 @@ public class BrobInt {
    *  @param  gint         BrobInt to subtract from this
    *  @return BrobInt that is the difference of the value of this BrobInt and the one passed in
    *  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
-   /*public BrobInt subtractInt( BrobInt gint ) {
+   public BrobInt subtractInt( BrobInt gint ) {
       throw new UnsupportedOperationException( "\n         Sorry, that operation is not yet implemented." );
    }
 
