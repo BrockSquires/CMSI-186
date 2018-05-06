@@ -140,7 +140,7 @@ public class BrobInt {
    *  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
    public BrobInt addInt( BrobInt gint ) {
        boolean makeNegative = false;
-       carry = 0
+       carry = 0;
        if(!sign && gint.sign) {
            gint.sign = true;
            return subtractInt(gint);
@@ -150,15 +150,15 @@ public class BrobInt {
 
        byte[] totalSum = new byte[(bigger.length())+1];
        for(int i = 0; i <= bigger.length(); i++){
-	          totalSum[i] = 0;
+             totalSum[i] = 0;
 
 
-	       if (i > bigger.length()){
+          if (i > bigger.length()){
 
-		      totalSum[i] = gint.BrobInt[i] + 0;
+            totalSum[i] = gint.BrobInt[i] + 0;
           } else{
-		      totalSum[i] = carry + BrobInt[i] + gint.BrobInt[i];
-	}
+            totalSum[i] = carry + BrobInt[i] + gint.BrobInt[i];
+   }
 }
 
 
